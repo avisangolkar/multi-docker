@@ -49,28 +49,28 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         
       - name: Build & Push to Docker Hub client
-        uses: docker/build-push-actions@v2
+        uses: docker/build-push-action@v3
         with:
           context : ./client
           push: true
           tags: avisangolkar/multi-client:latest, avisangolkar/multi-client:${{github.run_number}}
       
       - name : Build & Push to Docker Hub Nginx
-        uses: docker/build-push-actions@v2
+        uses: docker/build-push-action@v3
         with:
           context : ./nginx
           push: true
           tags: avisangolkar/multi-nginx:latest, avisangolkar/multi-nginx:${{github.run_number}}
       
       - name : Build & Push to Docker Hub Server
-        uses: docker/build-push-actions@v2
+        uses: docker/build-push-action@v3
         with:
           context : ./server
           push: true
           tags: avisangolkar/multi-server:latest, avisangolkar/multi-server:${{github.run_number}}
 
       - name : Build & Push to Docker Hub Worker
-        uses: docker/build-push-actions@v2
+        uses: docker/build-push-action@v3
         with:
           context : ./worker
           push: true
